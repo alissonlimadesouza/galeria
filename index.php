@@ -14,23 +14,23 @@ and open the template in the editor.
         <script>
             function img1() {
                 document.getElementById('img1').style.visibility = "visible";
-              //  document.getElementById('img2').style.visibility = "hidden";
-              //  document.getElementById('img3').style.visibility = "hidden";
+                //  document.getElementById('img2').style.visibility = "hidden";
+                //  document.getElementById('img3').style.visibility = "hidden";
                 document.getElementById("img1").style.transform = "rotateY(-360deg)";
-               
+
             }
             function img2() {
                 document.getElementById('img2').style.visibility = "visible";
-               // document.getElementById('img1').style.visibility = "hidden";
-               // document.getElementById('img3').style.visibility = "hidden";
+                // document.getElementById('img1').style.visibility = "hidden";
+                // document.getElementById('img3').style.visibility = "hidden";
                 document.getElementById("img2").style.transform = "rotate(360deg)";
                 document.getElementById("img2").style.marginLeft = "300px";
             }
             function img3() {
                 document.getElementById("img3").style.transform = "rotate(360deg)";
                 document.getElementById('img3').style.visibility = "visible";
-               
-              //  document.getElementById('img2').style.visibility = "hidden";
+
+                //  document.getElementById('img2').style.visibility = "hidden";
                 document.getElementById("img3").style.marginLeft = "600px";
 
 
@@ -43,11 +43,12 @@ and open the template in the editor.
                 setTimeout(recursiva, 1200);
 
                 if (valor == 1) {
-                  
-                   
+
+
 
                     setTimeout(img1, 3000);
                     document.getElementById("img1").style.transform = "rotateY(360deg)";
+                    document.getElementById("img1").style.borderRadius = "300px";
 
                 } else if (valor == 2) {
 
@@ -55,18 +56,23 @@ and open the template in the editor.
                     document.getElementById("img2").style.transform = "rotate(-360deg)";
                     document.getElementById("img2").style.marginLeft = "900px";
                     document.getElementById("img3").style.marginLeft = "900px";
-                     document.getElementById("img1").style.transform = "rotateX(360deg)";
+                    document.getElementById("img1").style.transform = "rotateX(360deg)";
+                    document.getElementById("img2").style.borderRadius = "300px";
 
                 } else if (valor == 3) {
                     document.getElementById("img3").style.transform = "rotate(-360deg)";
                     setTimeout(img3, 4000);
                     document.getElementById("img2").style.marginLeft = "0px";
-                     document.getElementById("img1").style.transform = "rotateY(360deg)";
+                    document.getElementById("img1").style.transform = "rotateY(360deg)";
+                    document.getElementById("img3").style.borderRadius = "300px";
 
 
 
                 } else if (valor == 4) {
                     valor = 0;
+                    document.getElementById("img1").style.borderRadius = "0px";
+                    document.getElementById("img2").style.borderRadius = "0px";
+                    document.getElementById("img3").style.borderRadius = "0px";
                 }
 
                 valor++;
