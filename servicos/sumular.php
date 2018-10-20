@@ -201,4 +201,4 @@ for ($p = 0; $p < $contagemB; $p++) {
 $consulta = "UPDATE times_has_torneios SET statusLancamento='1', dataLancamento='$dataAtual', horaLancamento='$horaAtual' WHERE idTimeHasTorneiro='$idJogo'";
 $sumular->editarOcorrencia($consulta);
 
-header("refresh:1; url=../servicos/verificaStatus.php");
+header("refresh:1; url=../servicos/verificaStatus.php?idTimeA=$idTimeA&idTimeB=$idTimeB");
