@@ -20,6 +20,8 @@ $nomeTimeA = $contabilizar->listaOcorrencia($consultaTimeA, "nomeTime");
 $contador = 1;
 ?>
 <form name="frmSumulaJogador" id="frmSumulaJogador" method="POST" action="./servicos/sumular.php">
+    <input type="hidden"  name="idTimeA" value="<?php echo $idTimeA; ?>" >
+    <input type="hidden"  name="idTimeB" value="<?php echo $idTimeB; ?>" >
     <table border="1">
         <?php
         for ($i = 0; $i < $contagem; $i++) {
@@ -209,7 +211,7 @@ t.idTime ='$idTimeB'";
                 <?php
                 if ($ativoInativo[$i] == 1) {
                     ?>
-               <td style="background-color: red;">
+                    <td style="background-color: red;">
                         inativo
                     </td>
                     <td >
@@ -254,10 +256,10 @@ t.idTime ='$idTimeB'";
                     <?php
                 } elseif ($ativoInativo[$i] == 0) {
                     ?>
-                     <td style="background-color: green;">
+                    <td style="background-color: green;">
                         ativo
                     </td>
-             
+
                     <td >
                         <input type="text" name="idJogadorB[]" value="<?php echo $idJogadorB[$i]; ?>" >
                     </td>
@@ -304,9 +306,9 @@ t.idTime ='$idTimeB'";
             </tr>
             <input type="hidden" name="contB" value="<?php echo $contador++; ?>" >
 
-    <?php
-}
-?>
+            <?php
+        }
+        ?>
         <tr>
             <td colspan="4"> <button >sumular</button></td>
         </tr>
