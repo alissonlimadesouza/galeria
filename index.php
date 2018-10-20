@@ -82,6 +82,7 @@ and open the template in the editor.
         </script>
     </head>
     <body onload="recursiva()">
+        Nova atualização
         <input type="button" value="imagem 1" onclick="img1()" >
         <input type="button" value="imagem 2" onclick="img2()" >
         <input type="button" value="imagem 3" onclick="img3()" >
