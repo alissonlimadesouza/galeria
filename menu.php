@@ -8,6 +8,7 @@
         <li><a href="index.php?pagina=0">Relatório de time</a></li>
         <li><a href="index.php?pagina=7">Relatório do jogador</a></li>
         <li><a href="index.php?pagina=0">Ranking dos times</a></li>
+        <li><a href="index.php?pagina=8">Resumo conexão</a></li>
 
 
 
