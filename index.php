@@ -46,6 +46,9 @@ and open the template in the editor.
                     include './conteudo/relatorioJogador.php';
                 }
                 
+                 elseif ($_GET['pagina'] == 8) {
+                    include './conteudo/resumoConexao.php';
+                }
                 
                 
                 
