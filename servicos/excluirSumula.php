@@ -37,6 +37,37 @@ $consulta = "alter table time_has_torneio_has_gols auto_increment=1";
 
 $excluirSumula->salvaOcorrencia($consulta);
 
+
+$consulta = "SELECT j.idJogador from times_has_torneios tht 
+INNER JOIN times t 
+on
+tht.idTime=t.idTime
+OR
+tht.idTimeB=t.idTime
+INNER JOIN times_has_jogadores thj 
+ON
+thj.idTime=t.idTime
+INNER JOIN jogadores j 
+on
+j.idJogador=thj.idJogador
+WHERE
+tht.idTimeHasTorneiro='$idJogo'";
+
+
+
+$contagem = $excluirSumula->contaOcorrencias($consulta);
+$idJogador = $excluirSumula->listaOcorrencia($consulta, "idJogador");
+for ($o = 0; $o < $contagem; $o++) {
+
+
+    $consulta = "UPDATE jogadores SET statusJogador=0 WHERE idJogador=$idJogador[$o]";
+    $excluirSumula->editarOcorrencia($consulta);
+}
+
+
+
+
+
 header("refresh:1; url=../index.php?pagina=5");
 
 //header("Location: ../index.php?pagina=5");
