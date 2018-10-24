@@ -1,5 +1,5 @@
-<!-- <img src="../img/200.gif"> -->
-<?php
+<img src="../img/200.gif"> 
+    <?php
 include './contabilizarCartoesAmarelos.php';
 include './contabilizarCartoesVermelhos.php';
 
@@ -17,7 +17,14 @@ $amarelosA = $_POST['amarelos'];
 $vermelhosA = $_POST['vermelhos'];
 $golsA = $_POST['gols'];
 
+$idTimeA = $_POST['idTimeA'];
+$idTimeB = $_POST['idTimeB'];
+
+
 echo "quantidade de jogadores : " . $contagemA = count($idJogadorA) . $br; // Aqui apresenta a quantidade de jogadores.
+
+
+
 
 
 
@@ -31,11 +38,12 @@ echo "quantidade de jogadores : " . $contagemA = count($idJogadorA) . $br; // Aq
 
 for ($j = 0; $j < $contagemA; $j++) {
 
-    echo "amarelo quantidade : " . $amarelosA[$j] . $nomeJogadorA[$j] . $br;
 
 
-    if ($amarelosA[$j] == 1) {
-        //     echo "Esse é do jogador ".$nomeJogadorA[$j];
+  
+
+if ($amarelosA[$j] == 1) {
+       
 
 
         echo "Alguém levou 1 e foi $nomeJogadorA[$j] <br />";
@@ -45,7 +53,7 @@ for ($j = 0; $j < $contagemA; $j++) {
         $sumular->salvaOcorrencia($consulta);
     } elseif ($amarelosA[$j] == 2) {
 
-        echo "Alguém levou 1 e foi $nomeJogadorA[$j] <br />";
+        echo "Alguém levou 2 e foi $nomeJogadorA[$j] <br />";
 
 
         $consulta = "INSERT INTO time_has_torneio_has_cartoes VALUES ('','$idJogo','2','$idJogadorA[$j]','2');";
@@ -82,6 +90,8 @@ for ($l = 0; $l < $contagemA; $l++) {
  * Programação para salvar os gols
  * 
  */
+
+
 for ($m = 0; $m < $contagemA; $m++) {
 
     if ($golsA[$m] > 0) {
@@ -106,6 +116,7 @@ for ($m = 0; $m < $contagemA; $m++) {
  * **************************************************************************************************************
  * ############################################################################################################
  */
+
 
 $timeB = $_POST['timeB'];
 $idJogadorB = $_POST['idJogadorB'];
@@ -177,6 +188,7 @@ for ($o = 0; $o < $contagemB; $o++) {
  * Programação para salvar os gols time B
  * 
  */
+
 for ($p = 0; $p < $contagemB; $p++) {
 
     if ($golsB[$p] > 0) {
@@ -201,4 +213,4 @@ for ($p = 0; $p < $contagemB; $p++) {
 $consulta = "UPDATE times_has_torneios SET statusLancamento='1', dataLancamento='$dataAtual', horaLancamento='$horaAtual' WHERE idTimeHasTorneiro='$idJogo'";
 $sumular->editarOcorrencia($consulta);
 
-header("refresh:1; url=../servicos/verificaStatus.php");
+header("refresh:1; url=../servicos/verificaStatus.php?idTimeA=$idTimeA&idTimeB=$idTimeB");

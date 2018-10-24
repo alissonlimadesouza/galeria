@@ -1,7 +1,7 @@
 <?php
 
 $_local = "localhost";
-$_senha = "";
+$_senha = "vxbP9XHZA7NVNwNc";
 $_usuario = "root";
 $_banco = "futebol";
 
