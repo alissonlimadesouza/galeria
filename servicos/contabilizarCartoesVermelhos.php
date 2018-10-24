@@ -47,10 +47,10 @@ t.idTime='$idTime'";
 
 
         for ($j = 0; $j < $contagemVermelhos; $j++) {
-            echo "codigo jogador: $idJogador[$i] - quantidades vermelhos: $quantidadeVermelhos[$j] ";
+          //  echo "codigo jogador: $idJogador[$i] - quantidades vermelhos: $quantidadeVermelhos[$j] ";
 
             if ($quantidadeVermelhos[$j] >= 1) {
-                echo 'irá calcular';
+             //   echo 'irá calcular';
 
                 $consulta = "select totalVermelho from jogadores where idJogador=$idJogador[$i]";
 
