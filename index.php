@@ -19,7 +19,7 @@ and open the template in the editor.
     </head>
     <body >
         <div id="topo">
-            Copa Amajal
+            <a href="index.php"> Copa Amajal</a>
         </div>
         <div  id="conteudoGeral">
             <?php
