@@ -42,7 +42,7 @@ t.idTime='$idTime[$times]'";
     <?php
     for ($j = 0; $j < $contagemJogadores; $j++) {
         ?>
-        <form method="POST" id="frmExclusaoJogadorElenco" name="frmExclusaoJogadorElenco" action="" >
+       
             <table border="02">
 
                 <?php
@@ -72,73 +72,67 @@ t.idTime='$idTime[$times]'";
                     $vermelho = $contabilizar->listaOcorrencia($consulta, "vermelho");
                     for ($l = 0; $l < $contagem; $l++) {
                         ?>
-                        <td><input readonly="" name="id" type="text" value="<?php echo $vermelho[$l]; ?>" ></td> 
+                    <td><input type="text" name="vermelho" type="text" value="<?php echo $vermelho[$l]; ?>" ></td> 
                         <?php
                     }
-                    
-                    
+
+
                     $consulta = "SELECT sum(quantidadeCartoes) as amarelo FROM jogadores j INNER join time_has_torneio_has_cartoes ththc ON ththc.idJogador=j.idJogador WHERE j.idJogador='$idJogador[$j]' AND ththc.idCartao=2";
                     $contagem = $contabilizar->contaOcorrencias($consulta);
                     $amarelo = $contabilizar->listaOcorrencia($consulta, "amarelo");
                     for ($m = 0; $m < $contagem; $m++) {
                         ?>
-                        <td><input readonly="" name="id" type="text" value="<?php echo $amarelo[$m]; ?>" ></td> 
+                    <td><input type="text" name="id" type="text" value="<?php echo $amarelo[$m]; ?>" ></td> 
                         <?php
                     }
-                    
-                    
-                    
-                    
-                    
+
+
+
+
+
                     $consulta = "SELECT sum(quantidadeGol) as gol FROM jogadores j INNER join time_has_torneio_has_gols ththg ON ththg.idJogador=j.idJogador WHERE j.idJogador='$idJogador[$j]' AND ththg.idGol=1";
                     $contagem = $contabilizar->contaOcorrencias($consulta);
                     $gol = $contabilizar->listaOcorrencia($consulta, "gol");
                     for ($n = 0; $n < $contagem; $n++) {
                         ?>
-                        <td><input readonly="" name="id" type="text" value="<?php echo $gol[$n]; ?>" ></td> 
+                        <td><input type="text" name="id" type="text" value="<?php echo $gol[$n]; ?>" ></td> 
                         <?php
                     }
-                    
-                    
-                    
-                    
-                      
+
+
+
+
+
                     $consulta = "SELECT * FROM jogadores where idJogador='$idJogador[$j]'";
                     $contagem = $contabilizar->contaOcorrencias($consulta);
                     $ativoInativo = $contabilizar->listaOcorrencia($consulta, "statusJogador");
                     for ($o = 0; $o < $contagem; $o++) {
-                        
-                        if($ativoInativo[$o] == 0 ){
-                        
-                        ?>
-                        
-                        
-                        
-                        
-                        <td><input style="background: green;" readonly="" name="id" type="text" value="<?php echo "Ativo"; ?>" ></td> 
-                        <?php
-                    }
-                    elseif($ativoInativo[$o] == 1 ){
-                        
-                        ?>
-                        
-                        
-                        
-                        
-                        <td><input style="background: red;" readonly="" name="id" type="text" value="<?php echo "Inativo"; ?>" ></td> 
-                        <?php
-                    }
-                    
-                    
-                    
-                    }
-                    
-                    
-                    ?>
-                </tr>
+
+                        if ($ativoInativo[$o] == 0) {
+                            ?>
+
+
+
+
+                            <td><input style="background: green;" readonly="" name="id" type="text" value="<?php echo "Ativo"; ?>" ></td> 
+                <?php
+            } elseif ($ativoInativo[$o] == 1) {
+                ?>
+
+
+
+
+                            <td><input style="background: red;" readonly="" name="id" type="text" value="<?php echo "Inativo"; ?>" ></td> 
                 <?php
             }
-            ?>
-        </table>
-            <?php
         }
+        ?>
+                </tr>
+            </table>
+        
+                        <?php
+                    }
+                    ?>
+
+                    <?php
+                }
